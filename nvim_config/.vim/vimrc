@@ -1,0 +1,109 @@
+syntax on
+:set number
+:set autoindent
+:set tabstop=4
+:set shiftwidth=4
+:set smarttab
+:set softtabstop=4
+:set mouse=a
+:set termguicolors
+set background = "dark"
+
+call plug#begin()
+
+Plug 'https://github.com/junegunn/vim-github-dashboard.git' " Plug syntax
+Plug 'junegunn/vim-easy-align' " Alignment
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
+Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
+Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'https://github.com/github/copilot.vim' " Github Copilot AI code completion
+Plug 'ms-jpq/coq_nvim', { 'branch': 'coq'} " coq_nvim completion tool
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+" Sensuble defaults
+Plug 'tpope/vim-sensible'
+" File browser with git indicators
+Plug 'preservim/nerdtree'
+Plug 'vim-scripts/The-NERD-tree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Tabs
+Plug 'jistr/vim-nerdtree-tabs'
+
+" git indicator in editor
+Plug 'airblade/vim-gitgutter'
+
+" Status bar
+Plug 'itchyny/lightline.vim'
+" Tabs
+
+Plug 'ap/vim-buftabline'
+
+" Telescope file finder / picker
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Treesitter
+Plug 'glepnir/lspsaga.nvim' " Nicer LSP UI
+Plug 'neovim/nvim-lspconfig' " LSP
+
+set encoding=UTF-8
+
+call plug#end()
+
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+nmap <F8> :TagbarToggle<CR>
+
+:set completeopt-=preview " For No Previews
+
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+
+" --- Just Some Notes ---
+" :PlugClean :PlugInstall :UpdateRemotePlugins
+"
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+
+let g:airline_theme='onehalfdark'
+" lightline
+" let g:lightline = {'colorscheme': 'onehalfdark'}
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+let g:coq_settings = { 'auto_start': v:true }
+
+

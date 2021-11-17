@@ -1,0 +1,32 @@
+#
+# Defines environment variables.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+function switch_context() {
+    export KUBE=$1
+    export CLOUDSDK_CONTAINER_CLUSTER=$2
+    export CLOUDSDK_ACTIVE_CONFIG_NAME=$3
+    export KUBECONFIG="${KUBE_PATH}/${KUBE}.conf"
+    echo $KUBECONFIG
+    [[ -n ${3} ]] && gcloud config configurations activate $3
+}
+
+alias syd='switch_context syd syd-1 syd'
+alias lon='switch_context lon lon-1 lon'
+alias bom='switch_context bom bom-1 bom'
+alias staging='switch_context staging staging-1 staging'
+alias dev='switch_context dev dev-1 dev'
+alias yul='switch_context yul yul-1 yul'
+alias cbf='switch_context cbf cbf-1 cbf'
+alias cbf-ana='switch_context cbf-ana cbf-ana-1 cbf-ana'
+alias chs='switch_context chs chs-1 chs'
+
+alias vim='nvim'
