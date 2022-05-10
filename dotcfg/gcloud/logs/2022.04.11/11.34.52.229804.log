@@ -1,0 +1,158 @@
+2022-04-11 11:34:52,230 DEBUG    root            Running [gcloud] with arguments: [-h: "None"]
+2022-04-11 11:34:52,231 DEBUG    root            Loaded Command Group: ['gcloud', 'bigtable']
+2022-04-11 11:34:52,234 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/lifesciences]
+2022-04-11 11:34:52,235 DEBUG    root            Loaded Command Group: ['gcloud', 'billing']
+2022-04-11 11:34:52,237 DEBUG    root            Loaded Command Group: ['gcloud', 'access_approval']
+2022-04-11 11:34:52,239 DEBUG    root            Loaded Command Group: ['gcloud', 'tasks']
+2022-04-11 11:34:52,245 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/code]
+2022-04-11 11:34:52,246 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_settings']
+2022-04-11 11:34:52,248 DEBUG    root            Loaded Command Group: ['gcloud', 'domains']
+2022-04-11 11:34:52,250 DEBUG    root            Loaded Command Group: ['gcloud', 'ai']
+2022-04-11 11:34:52,279 DEBUG    root            Loaded Command Group: ['gcloud', 'api_gateway']
+2022-04-11 11:34:52,283 DEBUG    root            Loaded Command Group: ['gcloud', 'notebooks']
+2022-04-11 11:34:52,287 DEBUG    root            Loaded Command Group: ['gcloud', 'topic']
+2022-04-11 11:34:52,293 DEBUG    root            Loaded Command Group: ['gcloud', 'debug']
+2022-04-11 11:34:52,296 DEBUG    root            Loaded Command Group: ['gcloud', 'artifacts']
+2022-04-11 11:34:52,303 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/data_fusion]
+2022-04-11 11:34:52,304 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2022-04-11 11:34:52,310 DEBUG    root            Loaded Command Group: ['gcloud', 'identity']
+2022-04-11 11:34:52,313 DEBUG    root            Loaded Command Group: ['gcloud', 'network_security']
+2022-04-11 11:34:52,317 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/admin_service_cluster]
+2022-04-11 11:34:52,320 DEBUG    root            Loaded Command Group: ['gcloud', 'workflows']
+2022-04-11 11:34:52,321 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2022-04-11 11:34:52,324 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/media]
+2022-04-11 11:34:52,326 DEBUG    root            Loaded Command Group: ['gcloud', 'transcoder']
+2022-04-11 11:34:52,329 DEBUG    root            Loaded Command Group: ['gcloud', 'redis']
+2022-04-11 11:34:52,334 DEBUG    root            Loaded Command Group: ['gcloud', 'scheduler']
+2022-04-11 11:34:52,337 DEBUG    root            Loaded Command Group: ['gcloud', 'policy_intelligence']
+2022-04-11 11:34:52,340 DEBUG    root            Loaded Command Group: ['gcloud', 'org_policies']
+2022-04-11 11:34:52,342 DEBUG    root            Loaded Command Group: ['gcloud', 'network_management']
+2022-04-11 11:34:52,345 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/error_reporting]
+2022-04-11 11:34:52,346 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/web_security_scanner]
+2022-04-11 11:34:52,352 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/runtime_config]
+2022-04-11 11:34:52,354 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2022-04-11 11:34:52,357 DEBUG    root            Loaded Command Group: ['gcloud', 'meta']
+2022-04-11 11:34:52,361 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/dialogflow]
+2022-04-11 11:34:52,362 DEBUG    root            Loaded Command Group: ['gcloud', 'dataflow']
+2022-04-11 11:34:52,365 DEBUG    root            Loaded Command Group: ['gcloud', 'workspace_add_ons']
+2022-04-11 11:34:52,375 DEBUG    root            Loaded Command Group: ['gcloud', 'init']
+2022-04-11 11:34:52,378 DEBUG    root            Loaded Command Group: ['gcloud', 'network_connectivity']
+2022-04-11 11:34:52,383 DEBUG    root            Loaded Command Group: ['gcloud', 'monitoring']
+2022-04-11 11:34:52,393 DEBUG    root            Loaded Command Group: ['gcloud', 'help']
+2022-04-11 11:34:52,397 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/edge_container]
+2022-04-11 11:34:52,398 DEBUG    root            Loaded Command Group: ['gcloud', 'dataproc']
+2022-04-11 11:34:52,403 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/bq]
+2022-04-11 11:34:52,404 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/remote_build_execution]
+2022-04-11 11:34:52,408 DEBUG    root            Loaded Command Group: ['gcloud', 'functions']
+2022-04-11 11:34:52,411 DEBUG    root            Loaded Command Group: ['gcloud', 'run']
+2022-04-11 11:34:52,415 DEBUG    root            Loaded Command Group: ['gcloud', 'game']
+2022-04-11 11:34:52,418 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/certificate_manager]
+2022-04-11 11:34:52,419 DEBUG    root            Loaded Command Group: ['gcloud', 'datastore']
+2022-04-11 11:34:52,421 DEBUG    root            Loaded Command Group: ['gcloud', 'emulators']
+2022-04-11 11:34:52,424 DEBUG    root            Loaded Command Group: ['gcloud', 'recommender']
+2022-04-11 11:34:52,427 DEBUG    root            Loaded Command Group: ['gcloud', 'cheat_sheet']
+2022-04-11 11:34:52,429 DEBUG    root            Loaded Command Group: ['gcloud', 'bms']
+2022-04-11 11:34:52,431 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2022-04-11 11:34:52,435 DEBUG    root            Loaded Command Group: ['gcloud', 'firebase']
+2022-04-11 11:34:52,508 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/interactive]
+2022-04-11 11:34:52,509 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/blueprints]
+2022-04-11 11:34:52,509 DEBUG    root            Loaded Command Group: ['gcloud', 'policy_troubleshoot']
+2022-04-11 11:34:52,511 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/kuberun]
+2022-04-11 11:34:52,512 DEBUG    root            Loaded Command Group: ['gcloud', 'service_directory']
+2022-04-11 11:34:52,514 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/alloydb]
+2022-04-11 11:34:52,515 DEBUG    root            Loaded Command Group: ['gcloud', 'recaptcha']
+2022-04-11 11:34:52,517 DEBUG    root            Loaded Command Group: ['gcloud', 'iam']
+2022-04-11 11:34:52,520 DEBUG    root            Loaded Command Group: ['gcloud', 'ai_platform']
+2022-04-11 11:34:52,522 DEBUG    root            Loaded Command Group: ['gcloud', 'source']
+2022-04-11 11:34:52,523 DEBUG    root            Loaded Command Group: ['gcloud', 'spanner']
+2022-04-11 11:34:52,527 DEBUG    root            Loaded Command Group: ['gcloud', 'docker']
+2022-04-11 11:34:52,528 DEBUG    root            Loaded Command Group: ['gcloud', 'datastream']
+2022-04-11 11:34:52,531 DEBUG    root            Loaded Command Group: ['gcloud', 'database_migration']
+2022-04-11 11:34:52,533 DEBUG    root            Loaded Command Group: ['gcloud', 'components']
+2022-04-11 11:34:52,535 DEBUG    root            Loaded Command Group: ['gcloud', 'metastore']
+2022-04-11 11:34:52,536 DEBUG    root            Loaded Command Group: ['gcloud', 'ml_engine']
+2022-04-11 11:34:52,538 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/resource_config]
+2022-04-11 11:34:52,539 DEBUG    root            Loaded Command Group: ['gcloud', 'filestore']
+2022-04-11 11:34:52,541 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/commerce_procurement]
+2022-04-11 11:34:52,542 DEBUG    root            Loaded Command Group: ['gcloud', 'endpoints']
+2022-04-11 11:34:52,546 DEBUG    root            Loaded Command Group: ['gcloud', 'info']
+2022-04-11 11:34:52,550 DEBUG    root            Loaded Command Group: ['gcloud', 'feedback']
+2022-04-11 11:34:52,551 DEBUG    root            Loaded Command Group: ['gcloud', 'healthcare']
+2022-04-11 11:34:52,556 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/publicca]
+2022-04-11 11:34:52,557 DEBUG    root            Loaded Command Group: ['gcloud', 'essential_contacts']
+2022-04-11 11:34:52,559 DEBUG    root            Loaded Command Group: ['gcloud', 'anthos']
+2022-04-11 11:34:52,562 DEBUG    root            Loaded Command Group: ['gcloud', 'privateca']
+2022-04-11 11:34:52,566 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore']
+2022-04-11 11:34:52,568 DEBUG    root            Loaded Command Group: ['gcloud', 'assured']
+2022-04-11 11:34:52,571 DEBUG    root            Loaded Command Group: ['gcloud', 'data_catalog']
+2022-04-11 11:34:52,575 DEBUG    root            Loaded Command Group: ['gcloud', 'apigee']
+2022-04-11 11:34:52,581 DEBUG    root            Loaded Command Group: ['gcloud', 'builds']
+2022-04-11 11:34:52,584 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/dlp]
+2022-04-11 11:34:52,584 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2022-04-11 11:34:52,586 DEBUG    root            Loaded Command Group: ['gcloud', 'deployment_manager']
+2022-04-11 11:34:52,589 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/vmware]
+2022-04-11 11:34:52,590 DEBUG    root            Loaded Command Group: ['gcloud', 'active_directory']
+2022-04-11 11:34:52,593 DEBUG    root            Loaded Command Group: ['gcloud', 'edge_cache']
+2022-04-11 11:34:52,596 DEBUG    root            Loaded Command Group: ['gcloud', 'cloud_shell']
+2022-04-11 11:34:52,658 DEBUG    root            Loaded Command Group: ['gcloud', 'compute']
+2022-04-11 11:34:52,679 DEBUG    root            Loaded Command Group: ['gcloud', 'app']
+2022-04-11 11:34:52,717 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/events]
+2022-04-11 11:34:52,718 DEBUG    root            Loaded Command Group: ['gcloud', 'iot']
+2022-04-11 11:34:52,722 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/transfer]
+2022-04-11 11:34:52,723 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/beyondcorp]
+2022-04-11 11:34:52,723 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/edge_cloud]
+2022-04-11 11:34:52,725 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2022-04-11 11:34:52,729 DEBUG    root            Loaded Command Group: ['gcloud', 'network_services']
+2022-04-11 11:34:52,734 DEBUG    root            Loaded Command Group: ['gcloud', 'composer']
+2022-04-11 11:34:52,737 DEBUG    root            Loaded Command Group: ['gcloud', 'pubsub']
+2022-04-11 11:34:52,743 DEBUG    root            Loaded Command Group: ['gcloud', 'deploy']
+2022-04-11 11:34:52,746 DEBUG    root            Loaded Command Group: ['gcloud', 'logging']
+2022-04-11 11:34:52,750 DEBUG    root            Loaded Command Group: ['gcloud', 'memcache']
+2022-04-11 11:34:52,753 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/datapipelines]
+2022-04-11 11:34:52,754 DEBUG    root            Loaded Command Group: ['gcloud', 'access_context_manager']
+2022-04-11 11:34:52,758 DEBUG    root            Loaded Command Group: ['gcloud', 'scc']
+2022-04-11 11:34:52,762 DEBUG    root            Loaded Command Group: ['gcloud', 'secrets']
+2022-04-11 11:34:52,765 DEBUG    root            Loaded Command Group: ['gcloud', 'ids']
+2022-04-11 11:34:52,767 DEBUG    root            Loaded Command Group: ['gcloud', 'ml']
+2022-04-11 11:34:52,771 DEBUG    root            Loaded Command Group: ['gcloud', 'asset']
+2022-04-11 11:34:52,773 DEBUG    root            Loaded Command Group: ['gcloud', 'organizations']
+2022-04-11 11:34:52,776 DEBUG    root            Loaded Command Group: ['gcloud', 'sql']
+2022-04-11 11:34:52,782 DEBUG    root            Loaded Command Group: ['gcloud', 'kms']
+2022-04-11 11:34:52,786 DEBUG    root            Loaded Command Group: ['gcloud', 'version']
+2022-04-11 11:34:52,788 DEBUG    root            Loaded Command Group: ['gcloud', 'eventarc']
+2022-04-11 11:34:52,791 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/trace]
+2022-04-11 11:34:52,792 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/genomics]
+2022-04-11 11:34:52,800 DEBUG    root            Loaded Command Group: ['gcloud', 'survey']
+2022-04-11 11:34:52,803 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/storage]
+2022-04-11 11:34:52,803 DEBUG    root            No implementation for release track [GA] for element: [/Users/jennings.leavitt/google-cloud-sdk/lib/surface/dataplex]
+2022-04-11 11:34:52,805 DEBUG    root            Loaded Command Group: ['gcloud', 'iap']
+2022-04-11 11:34:52,809 INFO     ___FILE_ONLY___ Usage: gcloud [optional flags] <group | command>
+  group may be           access-approval | access-context-manager |
+                         active-directory | ai | ai-platform | anthos |
+                         api-gateway | apigee | app | artifacts | asset |
+                         assured | auth | bigtable | billing | bms | builds |
+                         cloud-shell | components | composer | compute |
+                         config | container | data-catalog |
+                         database-migration | dataflow | dataproc | datastore |
+                         datastream | debug | deploy | deployment-manager |
+                         dns | domains | emulators | endpoints |
+                         essential-contacts | eventarc | filestore | firebase |
+                         firestore | functions | game | healthcare | iam | iap |
+                         identity | ids | iot | kms | logging | memcache |
+                         metastore | ml | ml-engine | monitoring |
+                         network-connectivity | network-management |
+                         network-security | network-services | notebooks |
+                         org-policies | organizations | policy-intelligence |
+                         policy-troubleshoot | privateca | projects | pubsub |
+                         recaptcha | recommender | redis | resource-manager |
+                         resource-settings | run | scc | scheduler | secrets |
+                         service-directory | services | source | spanner | sql |
+                         tasks | topic | transcoder | workflows |
+                         workspace-add-ons
+  command may be         cheat-sheet | docker | feedback | help | info | init |
+                         survey | version
+
+For detailed information on this command and its flags, run:
+  gcloud --help
+
+2022-04-11 11:34:52,816 DEBUG    root            Metrics reporting process started...

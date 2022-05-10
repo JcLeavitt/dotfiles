@@ -1,0 +1,65 @@
+2022-04-12 23:55:14,265 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2022-04-12 23:55:14,273 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2022-04-12 23:55:14,275 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "jennings.leavitt@tcnbroadcasting.com", --configuration: "dev", --format: "value(name)", PROJECT_ID_OR_NUMBER: "tcn-cloud-dev"]
+2022-04-12 23:55:14,283 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2022-04-12 23:55:14,292 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2022-04-12 23:55:14,433 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 400 None
+2022-04-12 23:55:14,434 INFO     root            Reauthentication not performed as we cannot prompt during non-interactive execution.
+2022-04-12 23:55:14,439 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2022-04-12 23:55:14,442 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2022-04-12 23:55:14,588 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 400 None
+2022-04-12 23:55:14,589 INFO     root            Reauthentication not performed as we cannot prompt during non-interactive execution.
+2022-04-12 23:55:14,598 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2022-04-12 23:55:14,600 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2022-04-12 23:55:14,748 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 400 None
+2022-04-12 23:55:14,749 INFO     root            Reauthentication not performed as we cannot prompt during non-interactive execution.
+2022-04-12 23:55:14,753 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2022-04-12 23:55:14,995 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/tcn-cloud-dev?alt=json HTTP/1.1" 401 None
+2022-04-12 23:55:15,003 DEBUG    root            (gcloud.projects.describe) UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  metadata:
+    method: google.cloudresourcemanager.v1.Projects.GetProject
+    service: cloudresourcemanager.googleapis.com
+  reason: ACCESS_TOKEN_TYPE_UNSUPPORTED
+Traceback (most recent call last):
+  File "/Users/jennings.leavitt/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+  File "/Users/jennings.leavitt/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 809, in Run
+    resources = command_instance.Run(args)
+  File "/Users/jennings.leavitt/google-cloud-sdk/lib/surface/projects/describe.py", line 51, in Run
+    return projects_api.Get(project_ref)
+  File "/Users/jennings.leavitt/google-cloud-sdk/lib/googlecloudsdk/api_lib/cloudresourcemanager/projects_api.py", line 74, in Get
+    return client.projects.Get(
+  File "/Users/jennings.leavitt/google-cloud-sdk/lib/googlecloudsdk/third_party/apis/cloudresourcemanager/v1/cloudresourcemanager_v1_client.py", line 758, in Get
+    return self._RunMethod(
+  File "/Users/jennings.leavitt/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 737, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+  File "/Users/jennings.leavitt/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 743, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+  File "/Users/jennings.leavitt/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 609, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpUnauthorizedError: HttpError accessing <https://cloudresourcemanager.googleapis.com/v1/projects/tcn-cloud-dev?alt=json>: response: <{'www-authenticate': 'Bearer realm="https://accounts.google.com/", error="invalid_token"', 'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 13 Apr 2022 05:55:15 GMT', 'server': 'ESF', 'cache-control': 'private', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'server-timing': 'gfet4t7; dur=154', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"', 'transfer-encoding': 'chunked', 'status': 401}>, content <{
+  "error": {
+    "code": 401,
+    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+    "status": "UNAUTHENTICATED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "ACCESS_TOKEN_TYPE_UNSUPPORTED",
+        "metadata": {
+          "method": "google.cloudresourcemanager.v1.Projects.GetProject",
+          "service": "cloudresourcemanager.googleapis.com"
+        }
+      }
+    ]
+  }
+}
+>
+2022-04-12 23:55:15,004 ERROR    root            (gcloud.projects.describe) UNAUTHENTICATED: Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  metadata:
+    method: google.cloudresourcemanager.v1.Projects.GetProject
+    service: cloudresourcemanager.googleapis.com
+  reason: ACCESS_TOKEN_TYPE_UNSUPPORTED
+2022-04-12 23:55:15,018 DEBUG    root            Metrics reporting process started...

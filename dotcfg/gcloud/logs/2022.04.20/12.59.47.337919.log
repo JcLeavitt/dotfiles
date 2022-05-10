@@ -1,0 +1,12 @@
+2022-04-20 12:59:47,339 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2022-04-20 12:59:47,344 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2022-04-20 12:59:47,346 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "jennings.leavitt@tcnbroadcasting.com", --configuration: "dev", --format: "value(name)", PROJECT_ID_OR_NUMBER: "tcn-cloud-dev"]
+2022-04-20 12:59:47,366 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2022-04-20 12:59:47,394 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2022-04-20 12:59:47,530 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2022-04-20 12:59:47,549 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2022-04-20 12:59:47,836 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/tcn-cloud-dev?alt=json HTTP/1.1" 200 None
+2022-04-20 12:59:47,839 INFO     root            Display format: "default value(name)"
+2022-04-20 12:59:47,840 INFO     ___FILE_ONLY___ TCN Cloud Dev
+
+2022-04-20 12:59:47,853 DEBUG    root            Metrics reporting process started...

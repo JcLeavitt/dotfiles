@@ -1,0 +1,4 @@
+2022-04-11 11:54:34,941 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2022-04-11 11:54:34,951 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'docker_helper']
+2022-04-11 11:54:34,953 ERROR    root            (gcloud.auth.docker-helper) argument METHOD: Must be specified.
+2022-04-11 11:54:34,960 DEBUG    root            Metrics reporting process started...

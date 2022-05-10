@@ -1,0 +1,24 @@
+2022-04-11 11:35:09,032 DEBUG    root            Loaded Command Group: ['gcloud', 'version']
+2022-04-11 11:35:09,033 DEBUG    root            Running [gcloud.version] with arguments: []
+2022-04-11 11:35:09,035 INFO     root            Display format: "flattened[no-pad,separator=" "]"
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___ Google Cloud SDK
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___  
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___ 370.0.0
+
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___ bq
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___  
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___ 2.0.73
+
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___ core
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___  
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___ 2022.01.21
+
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___ gsutil
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___  
+2022-04-11 11:35:09,036 INFO     ___FILE_ONLY___ 5.6
+
+2022-04-11 11:35:09,037 INFO     ___FILE_ONLY___ Updates are available for some Cloud SDK components.  To install them,
+please run:
+  $ gcloud components update
+
+2022-04-11 11:35:09,044 DEBUG    root            Metrics reporting process started...

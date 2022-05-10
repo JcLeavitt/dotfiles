@@ -1,0 +1,11 @@
+[core]
+account = jennings.leavitt@tcnbroadcasting.com
+project = tcn-cloud-dev
+
+[compute]
+zone = us-central1-a
+region = us-central1
+
+[container]
+cluster = dev-1
+

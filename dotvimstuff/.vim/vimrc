@@ -1,0 +1,111 @@
+syntax on
+set number
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set softtabstop=4
+set mouse=a
+set background = "dark"
+
+call plug#begin()
+ 
+Plug 'https://github.com/junegunn/vim-github-dashboard.git' " Plug syntax
+Plug 'junegunn/vim-easy-align' " Alignment
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
+Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plug 'https://github.com/github/copilot.vim' " Github Copilot AI code completion
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+" Sensuble defaults
+Plug 'tpope/vim-sensible'
+Plug 'vim-scripts/The-NERD-tree'
+" Tabs
+Plug 'jistr/vim-nerdtree-tabs'
+ 
+" Status bar
+Plug 'itchyny/lightline.vim'
+" Tabs
+ 
+Plug 'ap/vim-buftabline'
+ 
+" Telescope file finder / picker
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Treesitter
+Plug 'glepnir/lspsaga.nvim' " Nicer LSP UI
+Plug 'neovim/nvim-lspconfig' " LSP
+Plug 'scrooloose/nerdtree' " Helps w/ NerdTree
+Plug 'kevinoid/vim-jsonc'
+
+Plug 'junegunn/gv.vim'                                                    " https://github.com/junegunn/gv.vim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }  " https://github.com/iamcco/markdown-preview.nvim
+Plug 'preservim/nerdtree',                                                " https://github.com/preservim/nerdtree
+Plug 'ryanoasis/vim-devicons'                                             " https://github.com/ryanoasis/vim-devicons
+Plug 'Xuyuanp/nerdtree-git-plugin'                                        " https://github.com/Xuyuanp/nerdtree-git-plugin
+Plug 'tmhedberg/simpylfold'                                               " https://github.com/tmhedberg/SimpylFold
+Plug 'godlygeek/tabular'                                                  " https://github.com/godlygeek/tabular
+Plug 'tpope/vim-commentary'                                               " https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-fugitive'                                                 " https://github.com/tpope/vim-fugitive
+Plug 'airblade/vim-gitgutter'                                             " https://github.com/airblade/vim-gitgutter
+Plug 'plasticboy/vim-markdown'                                            " https://github.com/plasticboy/vim-markdown
+Plug 'tpope/vim-rhubarb'                                                  " https://github.com/tpope/vim-rhubarb
+Plug 'tpope/vim-surround'                                                 " https://github.com/tpope/vim-surround
+ 
+set encoding=UTF-8
+
+call plug#end()
+
+
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeIgnore = []
+let g:NERDTreeStatusline = ''
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Toggle
+
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+nmap <F8> :TagbarToggle<CR>
+
+set completeopt-=preview " For No Previews
+
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+
+let g:airline_theme='onehalfdark'
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+

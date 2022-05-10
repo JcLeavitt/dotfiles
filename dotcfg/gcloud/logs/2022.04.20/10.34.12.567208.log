@@ -1,0 +1,40 @@
+2022-04-20 10:34:12,570 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2022-04-20 10:34:12,576 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'configure_docker']
+2022-04-20 10:34:12,578 DEBUG    root            Running [gcloud.auth.configure-docker] with arguments: []
+2022-04-20 10:34:12,608 WARNING  root            Your config file at [/Users/jennings.leavitt/.docker/config.json] contains these credential helper entries:
+
+{
+  "credHelpers": {
+    "asia.gcr.io": "gcloud",
+    "eu.gcr.io": "gcloud",
+    "gcr.io": "gcloud",
+    "marketplace.gcr.io": "gcloud",
+    "staging-k8s.gcr.io": "gcloud",
+    "us.gcr.io": "gcloud"
+  }
+}
+2022-04-20 10:34:12,609 INFO     ___FILE_ONLY___ Adding credentials for all GCR repositories.
+
+2022-04-20 10:34:12,609 WARNING  root            A long list of credential helpers may cause delays running 'docker build'. We recommend passing the registry name to configure only the registry you are using.
+2022-04-20 10:34:12,609 INFO     ___FILE_ONLY___ gcloud credential helpers already registered correctly.
+
+2022-04-20 10:34:12,611 INFO     root            Display format: "default"
+2022-04-20 10:34:12,613 DEBUG    root            Checking for updates...
+2022-04-20 10:34:12,644 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2022-04-20 10:34:12,735 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/1.1" 200 187078
+2022-04-20 10:34:12,796 DEBUG    root            Updating notification cache...
+2022-04-20 10:34:12,796 DEBUG    root            Activating notification: [default]
+2022-04-20 10:34:12,796 INFO     ___FILE_ONLY___ 
+
+Updates are available for some Cloud SDK components.  To install them,
+please run:
+  $ gcloud components update
+
+
+2022-04-20 10:34:12,800 INFO     ___FILE_ONLY___ 
+
+To take a quick anonymous survey, run:
+  $ gcloud survey
+
+
+2022-04-20 10:34:12,808 DEBUG    root            Metrics reporting process started...

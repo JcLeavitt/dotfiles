@@ -1,0 +1,16 @@
+2022-04-11 11:34:02,031 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2022-04-11 11:34:02,036 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'activate_refresh_token']
+2022-04-11 11:34:02,041 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'docker_helper']
+2022-04-11 11:34:02,043 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'print_access_token']
+2022-04-11 11:34:02,046 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'git_helper']
+2022-04-11 11:34:02,051 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'list']
+2022-04-11 11:34:02,053 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'application_default']
+2022-04-11 11:34:02,057 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'activate_service_account']
+2022-04-11 11:34:02,059 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'configure_docker']
+2022-04-11 11:34:02,128 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'login']
+2022-04-11 11:34:02,130 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'revoke']
+2022-04-11 11:34:02,132 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'print_refresh_token']
+2022-04-11 11:34:02,135 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'describe']
+2022-04-11 11:34:02,139 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'print_identity_token']
+2022-04-11 11:34:02,141 ERROR    root            (gcloud.auth) Invalid choice: 'init'.
+2022-04-11 11:34:02,216 DEBUG    root            Metrics reporting process started...
