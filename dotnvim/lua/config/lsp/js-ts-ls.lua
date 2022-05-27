@@ -8,7 +8,7 @@
 -- require'illuminate'.on_attach(client)
 -- end
 require'lspconfig'.tsserver.setup {
-    cmd = {DATA_PATH .. "/lsp_servers/typescript/node_modules/.bin/typescript-language-server", "--stdio"},
+    cmd = {DATA_PATH .. "/lsp_servers/tsserver/node_modules/.bin/typescript-language-server", "--stdio"},
     filetypes = {"javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx"},
     on_attach = require'config.lsp'.tsserver_on_attach,
     -- This makes sure tsserver is not used for formatting (I prefer prettier)
@@ -22,5 +22,6 @@ require'lspconfig'.tsserver.setup {
             underline = true,
             update_in_insert = true
         })
-    }
+    },
+    -- capabilities = require'config.lsp'.common_capabilities,
 }

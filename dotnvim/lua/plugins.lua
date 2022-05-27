@@ -13,73 +13,20 @@ vim.api.nvim_exec([[
 ]], false)
 
 -- TODO add:
--- easyclip,
 -- set up quickfix list <ctrl q> with telescope
 -- set up telescope to search project
 -- and add stuff to which-key
 local use = require('packer').use
 require('packer').startup(function()
-    use { 'nvim-lua/plenary.nvim' }
-    use {
-        'nvim-telescope/telescope.nvim',
-        config = function()
-            require('config.telescope')
-        end
-    }
-
-    use {
-        'ray-x/navigator.lua',
-        config = function()
-            require("config.navigator")
-        end,
-        requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
-    }
-
-    use {
-        'beauwilliams/focus.nvim',
-        config = function()
-            require('config.focus')
-        end
-    }
-
+    use {"nvim-lua/plenary.nvim"}
 
     -- Packer can manage itself as an optional plugin
     use "wbthomason/packer.nvim"
     -- use {"wbthomason/packer.nvim", event = "VimEnter"}
 
-    use {
-        'neovim/nvim-lspconfig',
-    }
-    -- use {
-    --     'williamboman/nvim-lsp-installer',
-    --     config = function()
-    --         require('config.nvimlspinstaller')
-    --     end
-    -- }
-    -- use {'tami5/lspsaga.nvim'}
-
-    use {
-        "rebelot/kanagawa.nvim",
-        config = function()
-            require("config.kanagawa")
-        end
-    }
-
-    use {
-        "lukas-reineke/indent-blankline.nvim",
-        after = "kanagawa.nvim",
-        config = function()
-            require("config.indent-blankline")
-        end
-    }
-
-    use {
-        "kyazdani42/nvim-tree.lua",
-        config = function()
-            require("config.nvim-tree")
-        end
-    }
-
+    use {"neovim/nvim-lspconfig"}
+    use {"williamboman/nvim-lsp-installer"}
+    use {"onsails/lspkind-nvim"} -- vscode-like pictograms for cmp
     use {
         "ray-x/lsp_signature.nvim",
         config = function()
@@ -87,80 +34,106 @@ require('packer').startup(function()
         end
     }
 
-    use { "onsails/lspkind-nvim" } -- vscode-like pictograms for cmp
+    -- Debugging
+    use {"mfussenegger/nvim-dap"}
 
-    -- Status Line and Bufferline
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function()
-            require("config.lualine")
-        end
-    }
-    use {
-        "folke/trouble.nvim",
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function()
-            require("config.trouble")
-        end
-    }
-
-    use {
-        'pwntester/octo.nvim',
+        'nvim-telescope/telescope.nvim',
         requires = {
-            'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
-            'kyazdani42/nvim-web-devicons',
+            {'nvim-lua/plenary.nvim'},
+            {'nvim-telescope/telescope-fzf-native.nvim'},
         },
         config = function()
-            require "octo".setup()
+            require("config.telescope")
+        end
+    }
+	 
+	-- Jennings'  ********************************-------------|
+
+    use {
+            "beauwilliams/focus.nvim",
+            config = function()
+                    require('config.focus')
+            end
+    }
+
+    use {
+        "simrat39/symbols-outline.nvim",
+        config = function()
+            require('config.symbols-outline')
         end
     }
 
-    -- Debugging
-    use { "mfussenegger/nvim-dap" }
+	-- End of Jennings' plugins ******************---------|
 
-    use {
-        "hrsh7th/nvim-cmp",
-        config = function()
-            require("config.cmp")
-        end
+    -- TODO use the terminal related commands
+    use {'ThePrimeagen/harpoon',
+        requires = {
+            {'nvim-lua/plenary.nvim'},
+            {'nvim-telescope/telescope.nvim'},
+        },
     }
 
     -- Autocomplete
     -- must declare these sources in the cmp config file
-    -- TODO get a spelling cmp
-    use { "hrsh7th/cmp-buffer" }
-    use { "hrsh7th/cmp-path" }
-    use { "hrsh7th/cmp-nvim-lua" }
-    use { "hrsh7th/cmp-nvim-lsp" }
-    use { "hrsh7th/cmp-calc" }
-    use { "f3fora/cmp-spell" }
+    use {
+        "hrsh7th/nvim-cmp",
+        config = function()
+            require("config.cmp")
+        end,
+        -- wants = { "LuaSnip" },
+        -- requires = {
+        --     {
+        --         "L3MON4D3/LuaSnip",
+        --         event = "BufReadPre",
+        --         wants = "friendly-snippets",
+        --         requires = {
+        --             "rafamadriz/friendly-snippets",
+        --             "luasnip_snippets.nvim",
+        --         }
+        --     },{
+        --         "windwp/nvim-autopairs",
+        --         event = "BufReadPre",
+        --     },
+        -- },
+        -- TODO this event line causes the plugin to be optional?
+        -- event = "InsertEnter",
+    }
+    use {"hrsh7th/cmp-copilot"}
+    use {"hrsh7th/cmp-buffer"}
+    use {"hrsh7th/cmp-path"}
+    use {"hrsh7th/cmp-nvim-lua"}
+    use {"hrsh7th/cmp-nvim-lsp"}
+    use {"hrsh7th/cmp-calc"}
+    use {"f3fora/cmp-spell"}
+    -- not a huge fan of this one
     -- use {"hrsh7th/cmp-cmdline"}
-    use { "hrsh7th/cmp-emoji" }
-    use { "David-Kunz/cmp-npm", requires = { 'nvim-lua/plenary.nvim' } }
-
+    use {"hrsh7th/cmp-emoji"}
+    use {"David-Kunz/cmp-npm", requires = {'nvim-lua/plenary.nvim'}}
     -- TODO maybe have this ripgrep the whole project rather than just cwd
-    use { "lukas-reineke/cmp-rg" }
+    -- TODO dont think this is working
+    use {"lukas-reineke/cmp-rg"}
 
-    -- TODO use snippet pluign: https://github.com/L3MON4D3/LuaSnip
-    -- TODO and then use https://github.com/saadparwaiz1/cmp_luasnip to have cmp work with snippets
-    -- or use ultisnips, or snippy, or vsnip. tjdevries uses luasnip. ultisnips seems to be more supported in vim
+    -- use {"rafamadriz/friendly-snippets"}
+    -- use {"molleweide/LuaSnip-snippets.nvim"}
     -- TODO when a snippet completes then we should have a keybinding for jumping between the values for filling it out
-
-    use { "hrsh7th/vim-vsnip" }
-    use { "rafamadriz/friendly-snippets" }
+    -- use {"L3MON4D3/LuaSnip", 
+    --     requires = {'nvim-lua/plenary.nvim'},
+    --     config = function()
+    --         require("config.luasnip")
+    --     end
+    -- }
+    -- use {"saadparwaiz1/cmp_luasnip"}
 
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
-        run = ':TSUpdate',
         config = function()
             require("config.treesitter")
         end
     }
-
-    use { "windwp/nvim-ts-autotag" }
+    use {"windwp/nvim-ts-autotag"}
     use {
         'andymass/vim-matchup',
         config = function()
@@ -168,13 +141,13 @@ require('packer').startup(function()
         end
     }
     -- show you which function you're looking at at the top of the screen
-    use { "romgrk/nvim-treesitter-context" }
+    use {"romgrk/nvim-treesitter-context"}
     -- make matching parens and stuff different colors
-    use { "p00f/nvim-ts-rainbow" }
+    use {"p00f/nvim-ts-rainbow"}
     -- makes extra pairs that work with %
-    use { "theHamsta/nvim-treesitter-pairs" }
+    use {"theHamsta/nvim-treesitter-pairs"}
     -- auto highlight the current word
-    use { "RRethy/vim-illuminate" }
+    use {"RRethy/vim-illuminate"}
 
     use {
         "lewis6991/gitsigns.nvim",
@@ -183,7 +156,7 @@ require('packer').startup(function()
         end
     }
     -- this is auto disabled, can toggle it on using <leader>gB
-    use { "f-person/git-blame.nvim" }
+    use {"f-person/git-blame.nvim"}
 
     use {
         "folke/which-key.nvim",
@@ -197,24 +170,74 @@ require('packer').startup(function()
             require("config.autopairs")
         end
     }
-    use { "kevinhwang91/nvim-bqf" }
-    use {
-        "folke/zen-mode.nvim",
+
+    -- Comments with treesitter support
+    use {'terrortylor/nvim-comment',
         config = function()
-            require('config.zen-mode')
+            require("config.comment")
+        end
+    }
+    use {'JoosepAlviste/nvim-ts-context-commentstring'}
+
+    -- Jennings
+
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        after = "kanagawa.nvim",
+        config = function()
+            require("config.indent-blankline")
         end
     }
 
-    -- Comments
-    -- use {"tpope/vim-commentary"}
-    -- use {'JoosepAlviste/nvim-ts-context-commentstring'}
     use {
-        "terrortylor/nvim-comment",
+      'pwntester/octo.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope.nvim',
+        'kyazdani42/nvim-web-devicons',
+      },
+      config = function ()
+        require("octo").setup()
+      end
+    }
+
+    use {
+        'kyazdani42/nvim-tree.lua',
         config = function()
-            require("config.nvim_comment")
+            require("config.nvim-tree")
+        end,
+        requires = {
+          'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
+
+   use {
+        "rebelot/kanagawa.nvim",
+            config = function()
+                    require('config.kanagawa')
+            end
+    }
+
+    use {"kyazdani42/nvim-web-devicons"}
+
+    -- TODO setup for nice window to show diagnostics and quickfix, see if others use this
+    use {
+        "folke/trouble.nvim",
+        requires = {'kyazdani42/nvim-web-devicons'},
+        config = function()
+            require("config.trouble")
         end
     }
 
+    -- Status Line and Bufferline
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { 'kyazdani42/nvim-web-devicons'},
+        config = function()
+            require("config.lualine")
+        end
+    }
     use {
         "romgrk/barbar.nvim",
         config = function()
@@ -223,23 +246,23 @@ require('packer').startup(function()
     }
 
     -- Formatter
-    use { "sbdchd/neoformat" }
-    use { "tpope/vim-sleuth" }
-    use { "tpope/vim-repeat" }
+    use {"sbdchd/neoformat"}
+    use {"tpope/vim-sleuth"}
+    use {"tpope/vim-repeat"}
     use {
         "editorconfig/editorconfig-vim",
         config = function()
             require("config.editorconfig")
         end
     }
-    use { "tpope/vim-fugitive" }
+    use {"tpope/vim-fugitive"}
     use {
         "shumphrey/fugitive-gitlab.vim",
         config = function()
             require("config.fugitive")
         end
     }
-    use { "tpope/vim-rhubarb" }
+    use {"tpope/vim-rhubarb"}
     -- TODO vim-go is messing with nvim-lint i think. taking forever to save
     -- the snippets in vim-go are good. also implementing a interface with lsp is nice
     -- use {
@@ -258,17 +281,17 @@ require('packer').startup(function()
         end
     }
 
-    use { "github/copilot.vim" }
+    
+    use {"github/copilot.vim",
+        config = function()
+            vim.g.copilot_node_command = '/Users/jennings.leavitt/.nvm/versions/node/v18.0.0/bin/node' 
 
-    -- use {"svermeulen/vim-easyclip", opt = true}
+            vim.cmd("imap <silent><script><expr> <C-J> copilot#Accept(<CR>")
+            vim.g.copilot_no_tab_map = true
+
+        end
+    }
 
     -- Speed up Neovim startup time.
     use 'lewis6991/impatient.nvim'
-    ---- Also speed up Neovim startup time.
-    use {
-        "nathom/filetype.nvim",
-        config = function()
-            require("config.filetype")
-        end
-    }
 end)

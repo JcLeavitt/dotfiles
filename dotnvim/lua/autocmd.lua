@@ -23,35 +23,35 @@ end
 local auto_formatters = {}
 
 -- TODO why is wollemi not working?
--- local wollemi_autoformat = {
---     "BufWritePost *.go silent exec '!wollemi --log fatal gofmt' shellescape(expand('%:h'), 1)",
---     "BufWritePost *.plz silent exec '!wollemi --log fatal fmt' shellescape(expand('%:h'), 1)"
--- }
--- table.insert(auto_formatters, wollemi_autoformat)
+local wollemi_autoformat = {"BufWritePost", "*.go", "silent exec '!wollemi --log fatal gofmt' shellescape(expand('%:h'), 1)"}
+local wollemi_autoformat2 = {"BufWritePost", "*.plz", "silent exec '!wollemi --log fatal fmt' shellescape(expand('%:h'), 1)"}
 
-local python_autoformat = {'BufWritePre', '*.py', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
+table.insert(auto_formatters, wollemi_autoformat)
+table.insert(auto_formatters, wollemi_autoformat2)
+
+local python_autoformat = {'BufWritePre', '*.py', 'lua vim.lsp.buf.format(nil, 1000)'}
 table.insert(auto_formatters, python_autoformat)
 
-local javascript_autoformat = {'BufWritePre', '*.js', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
-local javascriptreact_autoformat = {'BufWritePre', '*.jsx', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
-local typescript_autoformat = {'BufWritePre', '*.ts', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
-local typescriptreact_autoformat = {'BufWritePre', '*.tsx', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
+local javascript_autoformat = {'BufWritePre', '*.js', 'lua vim.lsp.buf.format(nil, 1000)'}
+local javascriptreact_autoformat = {'BufWritePre', '*.jsx', 'lua vim.lsp.buf.format(nil, 1000)'}
+local typescript_autoformat = {'BufWritePre', '*.ts', 'lua vim.lsp.buf.format(nil, 1000)'}
+local typescriptreact_autoformat = {'BufWritePre', '*.tsx', 'lua vim.lsp.buf.format(nil, 1000)'}
 table.insert(auto_formatters, javascript_autoformat)
 table.insert(auto_formatters, javascriptreact_autoformat)
 table.insert(auto_formatters, typescript_autoformat)
 table.insert(auto_formatters, typescriptreact_autoformat)
 
 -- TODO look here if lua formatting is annoying
-local lua_format = {'BufWritePre', '*.lua', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
+local lua_format = {'BufWritePre', '*.lua', 'lua vim.lsp.buf.format(nil, 1000)'}
 table.insert(auto_formatters, lua_format)
 
-local json_format = {'BufWritePre', '*.json', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
+local json_format = {'BufWritePre', '*.json', 'lua vim.lsp.buf.format(nil, 1000)'}
 table.insert(auto_formatters, json_format)
 
-local ruby_format = {'BufWritePre', '*.rb', 'lua vim.lsp.buf.formatting_sync(nil,1000)'}
+local ruby_format = {'BufWritePre', '*.rb', 'lua vim.lsp.buf.format(nil,1000)'}
 table.insert(auto_formatters, ruby_format)
 
-local go_format = {'BufWritePre', '*.go', 'lua vim.lsp.buf.formatting_sync(nil,1000)'}
+local go_format = {'BufWritePre', '*.go', 'lua vim.lsp.buf.format(nil,1000)'}
 table.insert(auto_formatters, go_format)
 
 define_augroups({

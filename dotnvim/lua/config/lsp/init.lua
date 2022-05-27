@@ -12,15 +12,6 @@ vim.cmd("nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>")
 vim.cmd("nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>")
 vim.cmd("nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>")
 vim.cmd("nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>")
-
-
--- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
-
-
--- scroll down hover doc or scroll in definition preview
-
--- scroll up hover doc
-
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
 -- Set Default Prefix.
@@ -51,7 +42,7 @@ autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100) ]]
 
 local function documentHighlight(client, bufnr)
     -- Set autocommands conditional on server_capabilities
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.document_highlight then
         vim.api.nvim_exec([[
       hi LspReferenceRead cterm=bold ctermbg=red guibg=#D3D3D3
       hi LspReferenceText cterm=bold ctermbg=red guibg=#D3D3D3
@@ -65,7 +56,6 @@ local function documentHighlight(client, bufnr)
     end
 end
 
--- TODO add capabilities to this for nvim-cmp
 local lsp_config = {}
 
 function lsp_config.common_on_attach(client, bufnr)
@@ -76,8 +66,16 @@ end
 
 function lsp_config.tsserver_on_attach(client, bufnr)
     lsp_config.common_on_attach(client, bufnr)
-    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.document_formatting = false
 end
+
+function lsp_config.common_capabilities(client, bufnr)
+    -- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    -- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+    -- return capabilities
+end
+
 
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches

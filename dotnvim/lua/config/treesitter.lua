@@ -31,11 +31,11 @@ require'nvim-treesitter.configs'.setup {
     rainbow = {
         enable = true,
         extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-        max_file_lines = 2000 -- Do not enable for files with more than 1000 lines, int
+        max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
     },
     context = {enable = true},
 
-    -- indent = {enable = true},
+    indent = {enable = true},
     -- indent = {enable = true, disable = {"python", "html", "javascript"}},
     -- TODO seems to be broken
     -- indent = {enable = {"javascriptreact"}},

@@ -93,7 +93,7 @@ if tsserver_linter == 'eslint' then table.insert(tsserver_args, eslint) end
 
 local markdownPandocFormat = {formatCommand = 'pandoc -f markdown -t gfm -sp --tab-stop=2', formatStdin = true}
 
-require'lspconfig'.efm.setup {
+require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
     cmd = {DATA_PATH .. "/lsp_servers/efm/efm-langserver"},
     init_options = {documentFormatting = true, codeAction = false},
