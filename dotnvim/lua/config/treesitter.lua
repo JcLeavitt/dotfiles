@@ -1,44 +1,98 @@
-require'nvim-treesitter.configs'.setup {
-    autopairs = {enable = true},
-    ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-    ignore_install = {"haskell"},
-    matchup = {
-        enable = true -- mandatory, false will disable the whole extension
-        -- disable = { "c", "ruby" },  -- optional, list of language that will be disabled
+local M = {}
+
+function M.setup()
+  require("nvim-treesitter.configs").setup {
+    -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+    ensure_installed = "maintained",
+
+    -- Install languages synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+
+    highlight = {
+      -- `false` will disable the whole extension
+      enable = true,
     },
-    highlight = {enable = true},
-    context_commentstring = {enable = true, config = {css = '// %s'}},
+
     incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
+      },
+    },
+
+    indent = { enable = true },
+
+    -- vim-matchup
+    matchup = {
+      enable = true,
+    },
+
+    -- nvim-treesitter-textobjects
+    textobjects = {
+      select = {
         enable = true,
-        -- TODO try these out
+
+        -- Automatically jump forward to textobj, similar to targets.vim
+        lookahead = true,
+
         keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm"
-        }
-    },
-    textobjects = {enable = true},
-    pairs = {
-        enable = true,
-        disable = {},
-        highlight_pair_events = {}, -- e.g. {"CursorMoved"}, -- when to highlight the pairs, use {} to deactivate highlighting
-        highlight_self = false, -- whether to highlight also the part of the pair under cursor (or only the partner)
-        goto_right_end = false, -- whether to go to the end of the right partner or the beginning
-        fallback_cmd_normal = "call matchit#Match_wrapper('',1,'n')", -- What command to issue when we can't find a pair (e.g. "normal! %")
-        keymaps = {goto_partner = "<leader>%"}
-    },
-    rainbow = {
-        enable = true,
-        extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-        max_file_lines = 1000 -- Do not enable for files with more than 1000 lines, int
-    },
-    context = {enable = true},
+          -- You can use the capture groups defined in textobjects.scm
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["ac"] = "@class.outer",
+          ["ic"] = "@class.inner",
+        },
+      },
 
-    indent = {enable = true},
-    -- indent = {enable = true, disable = {"python", "html", "javascript"}},
-    -- TODO seems to be broken
-    -- indent = {enable = {"javascriptreact"}},
-    autotag = {enable = true}
-}
+      swap = {
+        enable = true,
+        swap_next = {
+          ["<leader>rx"] = "@parameter.inner",
+        },
+        swap_previous = {
+          ["<leader>rX"] = "@parameter.inner",
+        },
+      },
 
+      move = {
+        enable = true,
+        set_jumps = true, -- whether to set jumps in the jumplist
+        goto_next_start = {
+          ["]m"] = "@function.outer",
+          ["]]"] = "@class.outer",
+        },
+        goto_next_end = {
+          ["]M"] = "@function.outer",
+          ["]["] = "@class.outer",
+        },
+        goto_previous_start = {
+          ["[m"] = "@function.outer",
+          ["[["] = "@class.outer",
+        },
+        goto_previous_end = {
+          ["[M"] = "@function.outer",
+          ["[]"] = "@class.outer",
+        },
+      },
+
+      lsp_interop = {
+        enable = true,
+        border = "none",
+        peek_definition_code = {
+          ["<leader>df"] = "@function.outer",
+          ["<leader>dF"] = "@class.outer",
+        },
+      },
+    },
+
+    -- endwise
+    endwise = {
+      enable = true,
+    },
+  }
+end
+
+return M

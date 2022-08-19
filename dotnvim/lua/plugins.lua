@@ -17,7 +17,7 @@ vim.api.nvim_exec([[
 -- set up telescope to search project
 -- and add stuff to which-key
 local use = require('packer').use
-require('packer').startup(function()
+require('packer').startup(function() 
     use {"nvim-lua/plenary.nvim"}
 
     -- Packer can manage itself as an optional plugin
@@ -25,7 +25,12 @@ require('packer').startup(function()
     -- use {"wbthomason/packer.nvim", event = "VimEnter"}
 
     use {"neovim/nvim-lspconfig"}
-    use {"williamboman/nvim-lsp-installer"}
+    use {
+        "williamboman/nvim-lsp-installer",
+        config = function()
+            require("config.nvim-lsp-installer")
+        end
+    }
     use {"onsails/lspkind-nvim"} -- vscode-like pictograms for cmp
     use {
         "ray-x/lsp_signature.nvim",
@@ -33,23 +38,38 @@ require('packer').startup(function()
             require("config.signature")
         end
     }
-
+ 
     -- Debugging
     use {"mfussenegger/nvim-dap"}
 
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    -- User interface
     use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            {'nvim-lua/plenary.nvim'},
-            {'nvim-telescope/telescope-fzf-native.nvim'},
-        },
-        config = function()
-            require("config.telescope")
-        end
+      "stevearc/dressing.nvim",
+      event = "BufEnter",
+      config = function()
+        require("dressing").setup {
+          select = {
+            backend = { "telescope", "fzf", "builtin" },
+          },
+        }
+      end,
+      disable = true,
     }
+    use { "nvim-telescope/telescope.nvim", module = "telescope", as = "telescope" }
+
+    -- use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    -- use {
+    --     'nvim-telescope/telescope.nvim',
+    --     requires = {
+    --         {'nvim-lua/plenary.nvim'},
+    --         {'nvim-telescope/telescope-fzf-native.nvim'},
+    --     },
+    --     config = function()
+    --         require("config.telescope")
+    --     end
+    -- }
 	 
-	-- Jennings'  ********************************-------------|
+	-- Jennings'  plugins  ********************************-------------
 
     use {
             "beauwilliams/focus.nvim",
@@ -65,7 +85,14 @@ require('packer').startup(function()
         end
     }
 
-	-- End of Jennings' plugins ******************---------|
+    use {
+        "lukas-reineke/lsp-format.nvim",
+        config = function()
+            require('config.lsp-format')
+        end
+    }
+
+-- End of Jennings' plugins ******************---------|
 
     -- TODO use the terminal related commands
     use {'ThePrimeagen/harpoon',
@@ -75,65 +102,73 @@ require('packer').startup(function()
         },
     }
 
-    -- Autocomplete
+    -- Completion
     -- must declare these sources in the cmp config file
     use {
-        "hrsh7th/nvim-cmp",
-        config = function()
-            require("config.cmp")
-        end,
-        -- wants = { "LuaSnip" },
-        -- requires = {
-        --     {
-        --         "L3MON4D3/LuaSnip",
-        --         event = "BufReadPre",
-        --         wants = "friendly-snippets",
-        --         requires = {
-        --             "rafamadriz/friendly-snippets",
-        --             "luasnip_snippets.nvim",
-        --         }
-        --     },{
-        --         "windwp/nvim-autopairs",
-        --         event = "BufReadPre",
-        --     },
-        -- },
-        -- TODO this event line causes the plugin to be optional?
-        -- event = "InsertEnter",
+      "hrsh7th/nvim-cmp",
+      event = "InsertEnter",
+      opt = true,
+      config = function()
+        require("config.cmp").setup()
+      end,
+      wants = { "LuaSnip" },
+      requires = {
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lua",
+        "ray-x/cmp-treesitter",
+        "hrsh7th/cmp-cmdline",
+        "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-calc",
+        "f3fora/cmp-spell",
+        "hrsh7th/cmp-emoji",
+        {
+          "L3MON4D3/LuaSnip",
+          wants = "friendly-snippets",
+          config = function()
+            require("config.luasnip").setup()
+          end,
+        },
+        "rafamadriz/friendly-snippets",
+        disable = false,
+      },
     }
-    use {"hrsh7th/cmp-copilot"}
-    use {"hrsh7th/cmp-buffer"}
-    use {"hrsh7th/cmp-path"}
-    use {"hrsh7th/cmp-nvim-lua"}
-    use {"hrsh7th/cmp-nvim-lsp"}
-    use {"hrsh7th/cmp-calc"}
-    use {"f3fora/cmp-spell"}
     -- not a huge fan of this one
-    -- use {"hrsh7th/cmp-cmdline"}
-    use {"hrsh7th/cmp-emoji"}
     use {"David-Kunz/cmp-npm", requires = {'nvim-lua/plenary.nvim'}}
     -- TODO maybe have this ripgrep the whole project rather than just cwd
     -- TODO dont think this is working
     use {"lukas-reineke/cmp-rg"}
 
-    -- use {"rafamadriz/friendly-snippets"}
-    -- use {"molleweide/LuaSnip-snippets.nvim"}
-    -- TODO when a snippet completes then we should have a keybinding for jumping between the values for filling it out
-    -- use {"L3MON4D3/LuaSnip", 
-    --     requires = {'nvim-lua/plenary.nvim'},
-    --     config = function()
-    --         require("config.luasnip")
-    --     end
-    -- }
-    -- use {"saadparwaiz1/cmp_luasnip"}
+    use {
+        "kevinhwang91/nvim-bqf",
+        ft = 'qf',
+        config = function()
+            require("config.nvim-bqf")
+        end
+    }
+
+    -- optional
+    use {
+        'junegunn/fzf',
+        run = function()
+            vim.fn['fzf#install']()
+        end
+    }
 
     -- Treesitter
     use {
-        "nvim-treesitter/nvim-treesitter",
-        config = function()
-            require("config.treesitter")
-        end
+      "nvim-treesitter/nvim-treesitter",
+      opt = true,
+      event = "BufRead",
+      run = ":TSUpdate",
+      config = function()
+        require("config.treesitter").setup()
+      end,
+      requires = {
+        { "nvim-treesitter/nvim-treesitter-textobjects" },
+      },
     }
-    use {"windwp/nvim-ts-autotag"}
+
     use {
         'andymass/vim-matchup',
         config = function()
@@ -164,11 +199,31 @@ require('packer').startup(function()
             require("config.which-key")
         end
     }
+
     use {
         "windwp/nvim-autopairs",
+        wants = "nvim-treesitter",
+        module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
         config = function()
             require("config.autopairs")
-        end
+        end,
+    }
+
+    -- Auto pairs
+    use {
+        "windwp/nvim-ts-autotag",
+        wants = "nvim-treesitter",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-ts-autotag").setup { enable = true }
+        end,
+    }
+
+    -- End wise
+    use {
+        "RRethy/nvim-treesitter-endwise",
+        wants = "nvim-treesitter",
+        event = "InsertEnter",
     }
 
     -- Comments with treesitter support
@@ -181,6 +236,13 @@ require('packer').startup(function()
 
     -- Jennings
 
+   use {
+        "rebelot/kanagawa.nvim",
+            config = function()
+                    require("config.kanagawa")
+            end
+    }
+
     use {
         "lukas-reineke/indent-blankline.nvim",
         after = "kanagawa.nvim",
@@ -190,33 +252,32 @@ require('packer').startup(function()
     }
 
     use {
-      'pwntester/octo.nvim',
-      requires = {
+        'pwntester/octo.nvim',
+        requires = {
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope.nvim',
         'kyazdani42/nvim-web-devicons',
-      },
-      config = function ()
-        require("octo").setup()
-      end
-    }
-
-    use {
-        'kyazdani42/nvim-tree.lua',
-        config = function()
-            require("config.nvim-tree")
-        end,
-        requires = {
-          'kyazdani42/nvim-web-devicons', -- optional, for file icon
         },
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        config = function ()
+            require("octo").setup()
+        end
     }
 
-   use {
-        "rebelot/kanagawa.nvim",
-            config = function()
-                    require('config.kanagawa')
-            end
+    -- FZF Lua
+    use {
+        "ibhagwan/fzf-lua",
+        event = "BufEnter",
+        wants = "nvim-web-devicons",
+    }
+
+    -- nvim-tree
+    use {
+      "kyazdani42/nvim-tree.lua",
+      wants = "nvim-web-devicons",
+      cmd = { "NvimTreeToggle", "NvimTreeClose" },
+      config = function()
+        require("config.nvimtree").setup()
+      end,
     }
 
     use {"kyazdani42/nvim-web-devicons"}
@@ -278,17 +339,6 @@ require('packer').startup(function()
         "mfussenegger/nvim-lint",
         config = function()
             require("config.lint")
-        end
-    }
-
-    
-    use {"github/copilot.vim",
-        config = function()
-            vim.g.copilot_node_command = '/Users/jennings.leavitt/.nvm/versions/node/v18.0.0/bin/node' 
-
-            vim.cmd("imap <silent><script><expr> <C-J> copilot#Accept(<CR>")
-            vim.g.copilot_no_tab_map = true
-
         end
     }
 
